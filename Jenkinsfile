@@ -1,21 +1,25 @@
 pipeline {
     agent any
-
+ 
+    options {
+        timeout(time: 60, unit: 'SECONDS')
+    }
+    
     stages {
-        stage ('Compile Stage') {
-
-             echo "Hello 1"
-            
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
         }
-
-        stage ('Testing Stage') {
-
-             echo "Hello 2"
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+            }
         }
-
-
-        stage ('Deployment Stage') {
-              echo "Hello 3"
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
         }
     }
 }
